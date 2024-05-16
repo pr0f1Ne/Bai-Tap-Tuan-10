@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define For(i,a,b) for(int i = a ; i <= b ; i++)
+using namespace std;
+int main(){
+	int* p = new int;
+ 	int* p2 = p;
+ 	*p = 10;
+ 	delete p; 
+ 	*p2 = 100; // lỗi có thể dẫn đến undefined behavior do ghi giá trị vào vùng bộ nhớ đã đc giải phóng.
+ 	cout << *p2;
+ 	delete p2;// Giải phóng vùng đã được giải phóng dẫn đến undefined behavior
+	return 0;
+}

@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define For(i,a,b) for(int i = a ; i <= b ; i++)
+using namespace std;
+int main(){
+	char* a = new char[10];
+char* c = a + 3;
+for (int i = 0; i < 9; i++) a[i] = 'a'; 
+a[9] = '\0';
+cerr <<"a: " << "-" << a << "-" << endl;
+cerr <<"c: " << "-" << c << "-" << endl;
+delete c; // lỗi vì c trỏ tới vùng nhớ nằm giữa mảng được cấp phát bỏi new char[] mà c++ chỉ dùng delete cho con trỏ trỏ đến bắt đầu của mảng được cấp phát bởi new[].
+cerr << "a after deleting c:" << "-" << a << "-" << endl;
+
+	return 0;
+}

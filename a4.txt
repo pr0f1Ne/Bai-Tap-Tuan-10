@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int* createDynamicVariable() {
+    int localVar = 10; // Khai báo một biến địa phương
+    int* ptr = &localVar; // Con trỏ trỏ đến vùng nhớ của biến địa phương
+    return ptr;
+}
+
+int main() {
+    int* dynamicPtr = createDynamicVariable(); // Gọi hàm để nhận con trỏ trỏ đến biến địa phương
+    delete dynamicPtr; // Giải phóng con trỏ
+
+    // Khi chương trình cố gắng giải phóng con trỏ đã trỏ đến biến địa phương
+    // (mà đã bị hủy khi hàm createDynamicVariable() kết thúc),
+    // chương trình sẽ gây ra lỗi undefined behavior.
+    // Lỗi này có thể dẫn đến các hậu quả khác nhau như crash, segmentation fault,
+    // hoặc thậm chí có thể không có hiện tượng gì xảy ra ngay lập tức nhưng vẫn gây ra những lỗi không thể đoán trước được.
+    
+    return 0;
+}

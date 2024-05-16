@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define For(i,a,b) for(int i = a ; i <= b ; i++)
+using namespace std;
+char* reverse_string(const char* str) {
+    int len = strlen(str);
+    char* res = new char[len + 1];
+    strcpy(res, str);
+    For(i, 0, len / 2 - 1) swap(res[i] , res[len - 1 - i]);
+    return res;
+}
+int main() {
+    const char* input = "Hello, world!";
+    char* res = reverse_string(input);
+    cout << input << endl;
+    cout << res << endl;
+    delete[] res;
+    return 0;
+}
